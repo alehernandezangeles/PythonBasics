@@ -1,3 +1,13 @@
+print("=== Accessing elements ===")
+l1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(l1[4])
+print(l1[-2])
+
+print("=== Matrix ===")
+m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(m[1])
+print(m[1][2])
+
 print("=== Adding elements ===")
 print("append:")
 l1 = [10, 21, 32]
@@ -51,11 +61,32 @@ l1.sort()
 print(l1)
 l1.sort(reverse=True)
 print(l1)
+l2 = ['abc', 'ABD', 'aBe']
+l2.sort()
+print(l2)
+l2.sort(key=str.lower)
+print(l2)
+
+print("sorted:")
+l3 = [4, 2, 5, 1, 3]
+sorted(l3)
+print(l3)
+l3 = sorted(l3)
+print(l3)
 
 print("reverse:")
 l1 = ["Africa", "Oceania", "Asia", "Europe"]
 l1.reverse()
 print(l1)
+
+print("reversed:")
+l1 = [0, 1, 2, 3]
+reversed(l1)
+print(l1)
+rev_res = reversed(l1)
+print(rev_res) # Iterator
+res = list(rev_res)
+print(res)
 
 print("=== Searching & Counting ===")
 print("index:")
@@ -92,3 +123,8 @@ print("Slicing:")
 l1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 l2 = l1[3:7]
 print(l2)
+
+print("Slice assignment:")
+l1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+l1[3:7] = [30, 40, 50, 60, 70, 80, 90]
+print(l1)
