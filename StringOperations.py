@@ -40,4 +40,20 @@ print("0123456789".startswith("67"))
 print("0123456789".endswith("89"))
 print("0123456789".endswith("56"))
 
+print("Splitting, Joining, & Trimming:")
+print("0123456789".split("4"))
+print("01234 56789".split())
+multiline = '''This is a
+multiline text.'''
+print(multiline.splitlines())
+words = ["Python", "is", "a", "programming", "language"]
+print("_x_".join(words))
+print("   strip      ".strip())
+print("-+strip-+-+-+".strip("-+"))
+print("   strip      ".lstrip())
+print("-+strip-+-+-+".lstrip("-+"))
+print("   strip      ".rstrip())
+print("-+strip-+-+-+".rstrip("-+"))
+print("0123456789".partition("4"))
+
 
