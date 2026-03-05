@@ -25,10 +25,12 @@ unique_squares = {x * x for x in numbers}
 print(unique_squares)
 # Output: {1, 4, 9, 16, 25} (Notice it removed the duplicates!)
 
+new_set = {x for x in 'mississippi'}
+print(new_set)
+
 print("Adding if conditions to filter the data preemptively")
 # Create a list of squares, but ONLY if the original number is even
 even_squares = [i * i for i in range(10) if i % 2 == 0]
 
 print(even_squares)
 # Output: [0, 4, 16, 36, 64]
-
