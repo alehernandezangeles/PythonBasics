@@ -41,30 +41,40 @@ Expected output:
 'cbac'
 
 """
+from typing import Any
 
-def generate_strings(starting_characters, next_characters, n):
-    if starting_characters is None or next_characters is None or len(next_characters) < 1 or len(starting_characters) < 1:
+
+def generate_strings(starting_chars, next_valid_chars, max_str_len):
+    if starting_chars is None or next_valid_chars is None or len(next_valid_chars) < 1 or len(starting_chars) < 1:
         return
 
-    helper(starting_characters, next_characters, n)
+    current_str_len = 1
+    helper(starting_chars, next_valid_chars, current_str_len, max_str_len)
 
-def helper(curr_str, next_characters, max_length):
-    for x in curr_str:
-        print(x)
+def helper(current_str_list, next_valid_chars, current_str_len, max_str_len):
+    calc_next_char = True
+    if current_str_len >= max_str_len:
+        calc_next_char = False
 
-    if len(curr_str[0]) >= max_length:
+    temp_str_list = []
+    for current_str in current_str_list:
+        print(current_str)
+
+        if calc_next_char:
+            calc_temp_str_list(temp_str_list, current_str, next_valid_chars)
+
+    if not calc_next_char:
         return
 
-    new_str = []
-    for c_s in curr_str:
-        last_c = c_s[-1]
-        c_allowed = next_characters[last_c]
-        for allowed in c_allowed:
-            new_str.append("".join([c_s, allowed]))
+    current_str_list = temp_str_list # Memory optimization
+    helper(current_str_list, next_valid_chars, current_str_len + 1, max_str_len)
 
-    helper(new_str, next_characters, max_length)
+def calc_temp_str_list(temp_str_list, current_str, next_valid_chars):
+    last_char_in_str = current_str[-1]
+    valid_chars = next_valid_chars[last_char_in_str]
+    for valid_char in valid_chars:
+        temp_str_list.append("".join([current_str, valid_char]))
 
-    return
 
 starting_characters = ['a', 'b', 'c']
 next_character_map = {
