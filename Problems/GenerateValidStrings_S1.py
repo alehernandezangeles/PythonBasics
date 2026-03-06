@@ -52,9 +52,7 @@ def generate_strings(starting_chars, next_valid_chars, max_str_len):
     helper(starting_chars, next_valid_chars, current_str_len, max_str_len)
 
 def helper(current_str_list, next_valid_chars, current_str_len, max_str_len):
-    calc_next_char = True
-    if current_str_len >= max_str_len:
-        calc_next_char = False
+    calc_next_char = False if current_str_len >= max_str_len else True
 
     temp_str_list = []
     for current_str in current_str_list:
